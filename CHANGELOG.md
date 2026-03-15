@@ -1,5 +1,19 @@
 # Changelog
 
+## [1.0.1](https://github.com/lobinuxsoft/capydeploy/compare/v1.0.0...v1.0.1) (2026-03-15)
+
+
+### Refactoring
+
+* split monolithic filesystem modules into focused submodules ([baa7b71](https://github.com/lobinuxsoft/capydeploy/commit/baa7b713ae7f11c57dd45d535c38b134ded2fe71))
+* split monolithic filesystem modules into focused submodules ([9b7bfe4](https://github.com/lobinuxsoft/capydeploy/commit/9b7bfe4fad038969f2bb873ebffd8673099d14e2))
+
+
+### Documentation
+
+* add file browser documentation and update versions to 1.0.0 ([37518f2](https://github.com/lobinuxsoft/capydeploy/commit/37518f29df4d0bffbe7007eba60fc8ad1e18e1e8))
+* add file browser documentation and update versions to 1.0.0 ([e742f91](https://github.com/lobinuxsoft/capydeploy/commit/e742f91b8764660984f1db1ec9b99ee528130323))
+
 ## [1.0.0](https://github.com/lobinuxsoft/capydeploy/compare/v0.13.0...v1.0.0) (2026-03-15)
 
 
