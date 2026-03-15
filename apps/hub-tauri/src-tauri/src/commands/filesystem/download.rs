@@ -184,9 +184,7 @@ pub async fn fs_download_batch(
                 &cancel,
             )
             .await?;
-            let size = get_remote_file_size(&state, remote_path)
-                .await
-                .unwrap_or(0);
+            let size = get_remote_file_size(&state, remote_path).await.unwrap_or(0);
             transferred.fetch_add(size, Ordering::Relaxed);
             downloaded += 1;
         }
@@ -348,7 +346,13 @@ async fn download_directory_recursive(
             let base = transferred.load(Ordering::Relaxed);
             let local_file = local_dir.join(&entry.name);
             download_single_file(
-                app, state, &entry.path, &local_file, base, total_bytes, cancel,
+                app,
+                state,
+                &entry.path,
+                &local_file,
+                base,
+                total_bytes,
+                cancel,
             )
             .await?;
             transferred.fetch_add(entry.size, Ordering::Relaxed);
