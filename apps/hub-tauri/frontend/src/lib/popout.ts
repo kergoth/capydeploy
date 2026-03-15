@@ -3,7 +3,8 @@ import { emit } from '@tauri-apps/api/event';
 
 export const POPOUT_LABELS = {
 	telemetry: 'popout-telemetry',
-	consolelog: 'popout-consolelog'
+	consolelog: 'popout-consolelog',
+	filebrowser: 'popout-filebrowser'
 } as const;
 
 interface PopoutConfig {

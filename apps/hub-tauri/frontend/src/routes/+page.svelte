@@ -10,7 +10,7 @@
 	import { openPopout, closeAllPopouts, POPOUT_LABELS } from '$lib/popout';
 	import { emitTo } from '@tauri-apps/api/event';
 	import { get } from 'svelte/store';
-	import { Cpu, Terminal } from 'lucide-svelte';
+	import { Cpu, Terminal, FolderOpen } from 'lucide-svelte';
 
 	// Tabs are dynamic based on connection status.
 	// "Upload Game" and "Installed Games" only appear when an agent is connected.
@@ -135,6 +135,17 @@
 						<Terminal class="w-4 h-4" />
 						Console
 					</button>
+					{#if $connectionStatus.capabilities.includes('file_browser')}
+						<button
+							type="button"
+							onclick={() => openPopout({ label: POPOUT_LABELS.filebrowser, title: 'CapyDeploy - Files', url: '/filebrowser', width: 900, height: 600 })}
+							class="inline-flex items-center gap-1.5 rounded-md px-3 py-1 text-sm font-medium text-muted-foreground hover:bg-background/50 hover:text-foreground transition-all"
+							title="Open File Browser window"
+						>
+							<FolderOpen class="w-4 h-4" />
+							Files
+						</button>
+					{/if}
 				</div>
 			{/if}
 		</div>
