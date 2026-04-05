@@ -48,4 +48,7 @@ anyhow = "1"
 reqwest = { version = "0.12", default-features = false, features = ["rustls-tls"] }
 base64 = { workspace = true }
 open = "5"
+
+[target.'cfg(target_os = "macos")'.dependencies]
+objc2 = "0.6"
 uuid = { workspace = true }

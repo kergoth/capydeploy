@@ -63,6 +63,15 @@ pub fn run() {
         .manage(hub_state)
         .manage(fs_transfer_state)
         .setup(move |app| {
+            #[cfg(target_os = "macos")]
+            unsafe {
+                use objc2::runtime::AnyClass;
+                use objc2::msg_send;
+                if let Some(cls) = AnyClass::get(c"NSApplication") {
+                    let ns_app: *mut objc2::runtime::AnyObject = msg_send![cls, sharedApplication];
+                    let _: () = msg_send![ns_app, activateIgnoringOtherApps: true];
+                }
+            }
             let handle = app.handle().clone();
             let mgr_clone = mgr.clone();
             tauri::async_runtime::spawn(async move {
