@@ -121,7 +121,7 @@
 	<p class="text-sm cd-text-disabled">{statusMessage}</p>
 
 	<div class="space-y-2">
-		{#each games as game}
+		{#each [...games].sort((a, b) => a.name.localeCompare(b.name)) as game}
 			{@const isDeleting = deleting === game.name}
 			<div class="cd-section p-4">
 				<div class="flex items-center justify-between">
