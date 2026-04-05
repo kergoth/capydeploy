@@ -213,7 +213,13 @@ fn config_base_dir() -> anyhow::Result<PathBuf> {
         Ok(PathBuf::from(appdata))
     }
 
-    #[cfg(not(any(target_os = "linux", target_os = "windows")))]
+    #[cfg(target_os = "macos")]
+    {
+        let home = std::env::var("HOME").unwrap_or_else(|_| "/tmp".into());
+        Ok(PathBuf::from(home).join(".config"))
+    }
+
+    #[cfg(not(any(target_os = "linux", target_os = "macos", target_os = "windows")))]
     {
         Ok(PathBuf::from("/tmp"))
     }
